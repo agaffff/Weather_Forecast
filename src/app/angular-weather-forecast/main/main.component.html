@@ -1,0 +1,24 @@
+<select #selectElem (change)="getForecast(selectElem.value)">
+    <option *ngFor="let city of cities" [value]="city.value">
+        {{city.name}}
+    </option>
+</select>
+
+ <div *ngIf="visibleForecast">
+  <p>Сегодня:</p>
+  <p>Температура: {{forecastCity.temperature}}</p>
+  <p>{{forecastCity.description}}</p>
+  <p>Скорость ветра: {{forecastCity.wind}}</p>
+  <br>
+  <hr>
+  <p>Прогноз  на три дня:</p>
+  <div id="for">
+    <div *ngFor="let item of forecastCity.forecast">
+      <div>День - {{item.day}}</div> 
+      <div>Температура: {{item.temperature}}</div>
+      <div>Скорость ветра: {{item.wind}}</div>
+      <hr>
+    </div>
+</div>
+</div> 
+ 
